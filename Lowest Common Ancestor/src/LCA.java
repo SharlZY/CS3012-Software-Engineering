@@ -1,9 +1,18 @@
 
 public class LCA {
-	Node root;
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	public static boolean pathExists(Node current, Node dst){
+		if(current == null || dst == null){
+			return false;
+		}
+		if(current.getValue() == dst.getValue()){
+			return true;
+		}
+		if(current.getLeftNode() != null){
+			return pathExists(current.getLeftNode(), dst);
+		}
+		if(current.getRightNode() != null){
+			return pathExists(current.getRightNode(), dst);
+		}
+		return false;
 	}
-
 }
