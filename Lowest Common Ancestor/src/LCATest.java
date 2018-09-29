@@ -57,11 +57,12 @@ public class LCATest {
 		assertTrue(LCA.pathExists(root, node2.getRightNode()));
 		
 		assertTrue(LCA.pathExists(root, root.getRightNode()));
-/*		assertTrue(LCA.pathExists(root, node5.getRightNode()));
+		
+		assertTrue(LCA.pathExists(root, node5.getRightNode()));
 		assertTrue(LCA.pathExists(root, node5.getLeftNode()));
 		assertTrue(LCA.pathExists(root, node2.getRightNode()));
 		assertFalse(LCA.pathExists(root, node2.getLeftNode()));		
-*/		
+		
 	}
 	
 }

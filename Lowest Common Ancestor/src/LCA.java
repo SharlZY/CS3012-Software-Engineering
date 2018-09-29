@@ -7,11 +7,11 @@ public class LCA {
 		if(current.getValue() == dst.getValue()){
 			return true;
 		}
-		if(current.getLeftNode() != null){
-			return pathExists(current.getLeftNode(), dst);
+		if(current.getLeftNode() != null && pathExists(current.getLeftNode(), dst)){
+			return true;
 		}
-		if(current.getRightNode() != null){
-			return pathExists(current.getRightNode(), dst);
+		if(current.getRightNode() != null && pathExists(current.getRightNode(), dst)){
+			return true;
 		}
 		return false;
 	}
