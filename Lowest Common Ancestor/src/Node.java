@@ -2,34 +2,45 @@
 public class Node {
 	private int value;
 	private int numSubNodes;
-	private Node nextNode;
-	private Node prevNode;
-	Node(int value, int n){
-		setValue(value);
-		setNumSubNodes(n);
+	private Node leftNode;
+	private Node rightNode;
+
+	Node(int value, int n) {
+		this.value = value;
+		this.numSubNodes = n;
+		this.leftNode = null;
+		this.rightNode = null;
 	}
+
 	public int getValue() {
 		return value;
 	}
+
 	public void setValue(int value) {
 		this.value = value;
 	}
+
 	public int getNumSubNodes() {
 		return numSubNodes;
 	}
+
 	public void setNumSubNodes(int numSubNodes) {
 		this.numSubNodes = numSubNodes;
 	}
-	public Node getNextNode() {
-		return nextNode;
+
+	public Node getLeftNode() {
+		return leftNode;
 	}
-	public void setNextNode(Node nextNode) {
-		this.nextNode = nextNode;
+
+	public void setLeftNode(Node leftNode) {
+		this.leftNode = leftNode;
 	}
-	public Node getPrevNode() {
-		return prevNode;
+
+	public Node getRightNode() {
+		return rightNode;
 	}
-	public void setPrevNode(Node prevNode) {
-		this.prevNode = prevNode;
+
+	public void setRightNode(Node rightNode) {
+		this.rightNode = rightNode;
 	}
 }
