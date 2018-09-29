@@ -34,6 +34,7 @@ public class LCATest {
 		assertEquals(2, root.getLeftNode().getValue());
 		assertEquals(3, root.getRightNode().getValue());
 	}
+	
 	@Test 
 	public void testPathExists(){
 		/*Create a Tree*/
