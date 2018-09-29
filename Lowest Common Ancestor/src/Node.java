@@ -1,13 +1,11 @@
 
 public class Node {
 	private int value;
-	private int numSubNodes;
 	private Node leftNode;
 	private Node rightNode;
 
-	Node(int value, int n) {
+	Node(int value) {
 		this.value = value;
-		this.numSubNodes = n;
 		this.leftNode = null;
 		this.rightNode = null;
 	}
@@ -18,14 +16,6 @@ public class Node {
 
 	public void setValue(int value) {
 		this.value = value;
-	}
-
-	public int getNumSubNodes() {
-		return numSubNodes;
-	}
-
-	public void setNumSubNodes(int numSubNodes) {
-		this.numSubNodes = numSubNodes;
 	}
 
 	public Node getLeftNode() {
