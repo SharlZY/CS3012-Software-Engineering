@@ -99,6 +99,29 @@ public class LCATest {
 		expectedVal2.add(3);
 		expectedVal2.add(6);
 		assertEquals(expectedVal2, LCA.findPath(root, node3.getRightNode(), result2));
+		
+		ArrayList<Integer> result3 = new ArrayList<Integer>();
+		ArrayList<Integer> expectedVal3 = new ArrayList<Integer>();
+		expectedVal3.add(1);
+		expectedVal3.add(3);
+		expectedVal3.add(5);
+		expectedVal3.add(7);
+		assertEquals(expectedVal3, LCA.findPath(root, node5.getLeftNode(), result3));
+		
+		ArrayList<Integer> result4 = new ArrayList<Integer>();
+		ArrayList<Integer> expectedVal4 = new ArrayList<Integer>();
+		expectedVal4.add(1);
+		expectedVal4.add(3);
+		expectedVal4.add(5);
+		expectedVal4.add(8);
+		assertEquals(expectedVal4, LCA.findPath(root, node5.getRightNode(), result4));
+		
+		ArrayList<Integer> result5 = new ArrayList<Integer>();
+		ArrayList<Integer> expectedVal5 = new ArrayList<Integer>();
+		expectedVal5.add(3);
+		expectedVal5.add(5);
+		expectedVal5.add(8);
+		assertEquals(expectedVal5, LCA.findPath(node3, node5.getRightNode(), result5));
 	}
 
 }

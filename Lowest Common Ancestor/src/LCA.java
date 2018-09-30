@@ -5,7 +5,7 @@ public class LCA {
 	public ArrayList<Integer> path2 = new ArrayList<Integer>();
 
 	public static boolean pathExists(Node current, Node dst) {
-		if (current == null || dst == null) {
+		if (current == null|| dst == null) {
 			return false;
 		}
 		if (current.getValue() == dst.getValue()) {
@@ -23,15 +23,17 @@ public class LCA {
 	public static ArrayList<Integer> findPath(Node current, Node dst, ArrayList<Integer> pathStore) {
 		if (pathExists(current, dst)) {
 			pathStore.add(current.getValue());
-			if (current.getLeftNode() != null) {
-				return findPath(current.getLeftNode(), dst, pathStore);
-			}
-			if (current.getRightNode() != null) {
-				return findPath(current.getRightNode(), dst, pathStore);
-			}
-			if (current.getLeftNode() == null && current.getRightNode() == null || current.getValue() == dst.getValue()) {
+			if (current.getValue() == dst.getValue()) {
 				return pathStore;
 			}
+			if (current.getLeftNode() != null) {
+				findPath(current.getLeftNode(), dst, pathStore);
+			}
+
+			if (current.getRightNode() != null) {
+				findPath(current.getRightNode(), dst, pathStore);
+			}
+			return pathStore;
 		}
 		return pathStore;
 	}
