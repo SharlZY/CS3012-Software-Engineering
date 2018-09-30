@@ -153,5 +153,29 @@ public class LCATest {
 		assertEquals(5, LCA.cmpLists(list3, list4));
 	}
 	
+	@Test
+	public void testFindLCA(){
+		/* Create a Tree */
+		Node root = new Node(1);
+		Node node2 = new Node(2);
+		Node node3 = new Node(3);
+
+		/* Left Side of Tree */
+		root.setLeftNode(node2);
+		node2.setRightNode(new Node(4));
+
+		/* Right Side of Tree */
+		root.setRightNode(node3);
+		node3.setRightNode(new Node(6));
+		Node node5 = new Node(5);
+		node3.setLeftNode(node5);
+		node5.setLeftNode(new Node(7));
+		node5.setRightNode(new Node(8));
+		
+		assertEquals(5, LCA.findLCA(root, node5.getLeftNode(), node5.getRightNode()));
+		assertEquals(5, LCA.findLCA(root, node5, node5));
+		assertEquals(1, LCA.findLCA(root, node2.getRightNode(), node5.getRightNode()));
+		assertEquals(3, LCA.findLCA(root, node3.getRightNode(), node5.getLeftNode()));
+	}
 
 }

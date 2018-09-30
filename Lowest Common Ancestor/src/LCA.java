@@ -6,6 +6,8 @@ public class LCA {
 	public static int findLCA(Node root, Node current, Node dst) {
 		if (root == null || current == null || dst == null) {
 			return -1;
+		} else if (current.equals(dst)) {
+			return current.getValue();
 		} else {
 			ArrayList<Integer> path1 = new ArrayList<Integer>();
 			ArrayList<Integer> path2 = new ArrayList<Integer>();
