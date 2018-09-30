@@ -20,7 +20,7 @@ public class LCA {
 		int commonNum = 1;
 		for(int i = 0; i < Math.min(path1.size(), path2.size()); i++){
 			if(path1.get(i).equals(path2.get(i))){
-				commonNum = path1.get(1);
+				commonNum = path1.get(i);
 			}
 		}
 		return commonNum;

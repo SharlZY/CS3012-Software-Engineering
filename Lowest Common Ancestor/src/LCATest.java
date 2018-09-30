@@ -123,5 +123,32 @@ public class LCATest {
 		expectedVal5.add(8);
 		assertEquals(expectedVal5, LCA.findPath(node3, node5.getRightNode(), result5));
 	}
+	
+	@Test
+	public void testCmpLists(){
+		ArrayList<Integer> list1 = new ArrayList<Integer>();
+		ArrayList<Integer> list2 = new ArrayList<Integer>();
+		list1.add(1);
+		list1.add(3);
+		list1.add(6);
+		list2.add(1);
+		list2.add(3);
+		list2.add(5);
+		list2.add(7);
+		assertEquals(3, LCA.cmpLists(list1, list2));
+		
+		ArrayList<Integer> list3 = new ArrayList<Integer>();
+		ArrayList<Integer> list4 = new ArrayList<Integer>();
+		list3.add(1);
+		list3.add(3);
+		list3.add(5);
+		list3.add(8);
+		list4.add(1);
+		list4.add(3);
+		list4.add(5);
+		list4.add(7);
+		assertEquals(5, LCA.cmpLists(list3, list4));
+	}
+	
 
 }
