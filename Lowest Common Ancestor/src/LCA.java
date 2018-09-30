@@ -1,25 +1,29 @@
 import java.util.ArrayList;
 import java.lang.Math;;
+
 public class LCA {
-	
-	public static int findLCA(Node root, Node current, Node dst){
-		ArrayList<Integer> path1 = new ArrayList<Integer>();
-		ArrayList<Integer> path2 = new ArrayList<Integer>();
-		int LCA = 1;
-		findPath(root, current, path1);
-		findPath(root, dst, path2);
-		if(findPath(root, current, path1).isEmpty() || findPath(root, dst, path2).isEmpty()){
-			return LCA;
-		}
-		else{
-			return cmpLists(path1, path2);
+
+	public static int findLCA(Node root, Node current, Node dst) {
+		if (root == null || current == null || dst == null) {
+			return -1;
+		} else {
+			ArrayList<Integer> path1 = new ArrayList<Integer>();
+			ArrayList<Integer> path2 = new ArrayList<Integer>();
+			int LCA = 1;
+			findPath(root, current, path1);
+			findPath(root, dst, path2);
+			if (findPath(root, current, path1).isEmpty() || findPath(root, dst, path2).isEmpty()) {
+				return LCA;
+			} else {
+				return cmpLists(path1, path2);
+			}
 		}
 	}
-	
-	public static int cmpLists(ArrayList<Integer> path1, ArrayList<Integer> path2){
+
+	public static int cmpLists(ArrayList<Integer> path1, ArrayList<Integer> path2) {
 		int commonNum = 1;
-		for(int i = 0; i < Math.min(path1.size(), path2.size()); i++){
-			if(path1.get(i).equals(path2.get(i))){
+		for (int i = 0; i < Math.min(path1.size(), path2.size()); i++) {
+			if (path1.get(i).equals(path2.get(i))) {
 				commonNum = path1.get(i);
 			}
 		}
@@ -27,7 +31,7 @@ public class LCA {
 	}
 
 	public static boolean pathExists(Node current, Node dst) {
-		if (current == null|| dst == null) {
+		if (current == null || dst == null) {
 			return false;
 		}
 		if (current.getValue() == dst.getValue()) {

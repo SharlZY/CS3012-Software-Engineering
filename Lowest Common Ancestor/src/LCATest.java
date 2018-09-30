@@ -116,6 +116,7 @@ public class LCATest {
 		expectedVal4.add(8);
 		assertEquals(expectedVal4, LCA.findPath(root, node5.getRightNode(), result4));
 		
+		/*Find nodes of same subtree*/
 		ArrayList<Integer> result5 = new ArrayList<Integer>();
 		ArrayList<Integer> expectedVal5 = new ArrayList<Integer>();
 		expectedVal5.add(3);
@@ -126,6 +127,7 @@ public class LCATest {
 	
 	@Test
 	public void testCmpLists(){
+		/* List 1 length shorter than List 2*/
 		ArrayList<Integer> list1 = new ArrayList<Integer>();
 		ArrayList<Integer> list2 = new ArrayList<Integer>();
 		list1.add(1);
@@ -137,6 +139,7 @@ public class LCATest {
 		list2.add(7);
 		assertEquals(3, LCA.cmpLists(list1, list2));
 		
+		/*Lists of the same length*/
 		ArrayList<Integer> list3 = new ArrayList<Integer>();
 		ArrayList<Integer> list4 = new ArrayList<Integer>();
 		list3.add(1);
