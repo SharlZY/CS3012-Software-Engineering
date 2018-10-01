@@ -23,13 +23,17 @@ public class LCA {
 	}
 
 	public static int cmpLists(ArrayList<Integer> path1, ArrayList<Integer> path2) {
-		int commonNum = 1;
-		for (int i = 0; i < Math.min(path1.size(), path2.size()); i++) {
-			if (path1.get(i).equals(path2.get(i))) {
-				commonNum = path1.get(i);
+		if (path1.isEmpty() || path2.isEmpty()) {
+			return -1;
+		} else {
+			int commonNum = 1;
+			for (int i = 0; i < Math.min(path1.size(), path2.size()); i++) {
+				if (path1.get(i).equals(path2.get(i))) {
+					commonNum = path1.get(i);
+				}
 			}
+			return commonNum;
 		}
-		return commonNum;
 	}
 
 	public static boolean pathExists(Node current, Node dst) {
