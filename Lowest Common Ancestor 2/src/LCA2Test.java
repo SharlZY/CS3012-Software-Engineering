@@ -1,7 +1,7 @@
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-
+import java.util.ArrayList;
 public class LCA2Test {
 
 	@Test
@@ -20,6 +20,14 @@ public class LCA2Test {
 		nodeC.addOutEdge(nodeB);
 		nodeE.addOutEdge(nodeB);
 		nodeB.addOutEdge(nodeA);
+		
+		ArrayList<Node> gNeighbours = new ArrayList<Node>();
+		gNeighbours.add(nodeD);
+		gNeighbours.add(nodeF);
+		
+		ArrayList<Node> results = new ArrayList<Node>();
+		results = nodeG.getNeighbours();
+		assertEquals(gNeighbours, results);
 	}
 
 }

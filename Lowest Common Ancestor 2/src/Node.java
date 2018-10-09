@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Node {
 	private char value;
-	private ArrayList<Node> outEdges;
+	private ArrayList<Node> outEdges = new ArrayList<Node>();
 	
 	Node(char value){
 		this.setValue(value);
@@ -16,5 +16,7 @@ public class Node {
 	public void setValue(char value) {
 		this.value = value;
 	}
-	
+	public ArrayList<Node> getNeighbours(){
+		return outEdges;
+	}
 }
