@@ -6,6 +6,7 @@ public class LCA2Test {
 
 	@Test
 	public void dagCreation() {
+		DAG sample = new DAG(7);
 		Node nodeA = new Node('A');
 		Node nodeB = new Node('B');
 		Node nodeC = new Node('C');
@@ -13,21 +14,17 @@ public class LCA2Test {
 		Node nodeE = new Node('E');
 		Node nodeF = new Node('F');
 		Node nodeG = new Node('G');
-		nodeG.addOutEdge(nodeD);
-		nodeG.addOutEdge(nodeF); //need to write code for possible duplicate values in list
-		nodeF.addOutEdge(nodeE);
-		nodeD.addOutEdge(nodeC);
-		nodeC.addOutEdge(nodeB);
-		nodeE.addOutEdge(nodeB);
-		nodeB.addOutEdge(nodeA);
 		
-		ArrayList<Node> gNeighbours = new ArrayList<Node>();
-		gNeighbours.add(nodeD);
-		gNeighbours.add(nodeF);
+		sample.addEdge(nodeG, nodeD);
+		sample.addEdge(nodeG, nodeF);
+		sample.addEdge(nodeD, nodeC);
+		sample.addEdge(nodeC, nodeB);
+		sample.addEdge(nodeB, nodeA);
+		sample.addEdge(nodeF, nodeE);
+		sample.addEdge(nodeE, nodeB);
 		
-		ArrayList<Node> results = new ArrayList<Node>();
-		results = nodeG.getNeighbours();
-		assertEquals(gNeighbours, results);
+		LCA2 lca = new LCA2();
+		lca.bfs(nodeG, sample);
 	}
 
 }
