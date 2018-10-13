@@ -1,5 +1,9 @@
 public class Node {
 	private char value;
+	public static int vNum;
+	public boolean[] marked;
+	public char[] edgeTo;
+	public int[] distTo;
 	
 	Node(char value){
 		this.setValue(value);
@@ -11,7 +15,20 @@ public class Node {
 		this.value = value;
 	}
 	public int intVal(){
-//		System.out.print(value-0x40);
     	return (value-0x40);
     }
+	public int shortdistTo(Node dst){
+		for(int i = 0; i < edgeTo.length-1; i++){
+			if(edgeTo[i] == dst.getValue()){
+				return distTo[i];
+			}
+		}
+		return -1;
+	}
+	public void setTotalVertices(int v){
+		vNum = v;
+		marked = new boolean[vNum];
+		edgeTo = new char[vNum];
+		distTo = new int[vNum];
+	}
 }
