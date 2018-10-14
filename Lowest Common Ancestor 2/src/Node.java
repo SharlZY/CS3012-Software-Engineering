@@ -5,8 +5,13 @@ public class Node {
 	public char[] edgeTo;
 	public int[] distTo;
 	
-	Node(char value){
+	Node(char value, int v){
 		this.setValue(value);
+		vNum = v;
+		marked = new boolean[vNum];
+		edgeTo = new char[vNum];
+		distTo = new int[vNum];
+		edgeTo[intVal()-1] = value;
 	}
 	public char getValue() {
 		return value;
@@ -24,11 +29,5 @@ public class Node {
 			}
 		}
 		return -1;
-	}
-	public void setTotalVertices(int v){
-		vNum = v;
-		marked = new boolean[vNum];
-		edgeTo = new char[vNum];
-		distTo = new int[vNum];
 	}
 }

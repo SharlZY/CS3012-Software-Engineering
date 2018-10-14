@@ -3,8 +3,11 @@ public class LCA2 {
 	public void findLCA(){
 		
 	}
-	public char cmpAncestorLists(){
+	public char cmpAncestorLists(Node x, Node y){
 		char common = ' ';
+		for(int i = 0; i < x.distTo.length; i++){
+		
+		}
 		return common;
 	}
 	public void bfs(Node src, DAG sample) {
@@ -23,9 +26,6 @@ public class LCA2 {
 					src.distTo[w.intVal()-1] = src.distTo[s] + 1;
 				}
 			}
-		}
-		for (int i = 0; i < src.edgeTo.length-1; i++) {
-			System.out.println("EdgeTo: " + src.edgeTo[i] + " distTo: " + src.distTo[i]);
 		}
 	}
 }
