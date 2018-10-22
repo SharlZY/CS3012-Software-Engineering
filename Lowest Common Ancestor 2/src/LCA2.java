@@ -1,14 +1,34 @@
 
 public class LCA2 {
-	public void findLCA(){
-		
-	}
-	public char cmpAncestorLists(Node x, Node y){
+	public char findLCA(Node x, Node y, DAG graph){
 		char common = ' ';
-		for(int i = 0; i < x.distTo.length; i++){
-		
-		}
+		bfs(x,graph);
+		bfs(y,graph);
+		common = cmpAncestorLists(x,y);
 		return common;
+	}
+	public char cmpAncestorLists(Node x, Node y){	
+		int min = 1;
+		boolean isFound = false;
+		if(x.distTo[y.intVal()-1] != -1){ //if the LCA is one of the nodes itself
+			return y.getValue();
+		}
+		else if(y.distTo[x.intVal()-1] != -1){ // check other node
+			return x.getValue();
+		}
+		else{
+		while(isFound == false){	
+		for(int i = 0; i < x.distTo.length; i++){ // else if its not
+			if(x.distTo[i] == min){
+				if(y.distTo[i] != -1){
+					return y.edgeTo[i];
+				}
+			}
+		}
+		min++;
+		}
+		}
+		return ' ';
 	}
 	public void bfs(Node src, DAG sample) {
 		Queue<Integer> q = new Queue<Integer>();
@@ -26,6 +46,9 @@ public class LCA2 {
 					src.distTo[w.intVal()-1] = src.distTo[s] + 1;
 				}
 			}
+		}
+		for(int i = 0; i < src.distTo.length; i++ ){
+			System.out.println("Src: " + src.getValue() + " Dist: " + src.distTo[i]);
 		}
 	}
 }

@@ -11,7 +11,14 @@ public class Node {
 		marked = new boolean[vNum];
 		edgeTo = new char[vNum];
 		distTo = new int[vNum];
+		init();
 		edgeTo[intVal()-1] = value;
+		
+	}
+	public void init(){
+		for(int i = 0; i < distTo.length; i++){
+			distTo[i] = -1;
+		}
 	}
 	public char getValue() {
 		return value;
