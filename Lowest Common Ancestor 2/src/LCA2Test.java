@@ -109,23 +109,34 @@ public class LCA2Test {
 		
 		LCA2 lca = new LCA2();
 		char result = ' ';
-		result = lca.findLCA(nodeG, nodeE, sample);		
+		result = lca.findLCA(nodeG, nodeE, sample);	//LCA(G,E) = E	
 		assertEquals('E', result);
 		
-		result = lca.findLCA(nodeD, nodeF, sample);
+		result = lca.findLCA(nodeD, nodeF, sample); //LCA(D,F) = B
 		assertEquals('B', result);
 		
-		result = lca.findLCA(nodeC, nodeF, sample);
+		result = lca.findLCA(nodeC, nodeF, sample); //LCA(C,F) = B
 		assertEquals('B', result);
 		
-		result = lca.findLCA(nodeD, nodeE, sample);
+		result = lca.findLCA(nodeD, nodeE, sample); //LCA(D,E) = B
 		assertEquals('B', result);
 		
-		result = lca.findLCA(nodeC, nodeG, sample);
+		result = lca.findLCA(nodeC, nodeG, sample); //LCA(C,G) = C
 		assertEquals('C', result);
 	}
 	@Test
-	public void testAcyclic(){
+	public void testNodeExists(){
+		DAG sample = new DAG(2);
+		Node nodeA = new Node('A',V);
+		Node nodeB = new Node('B',V);
+		Node nodeC = new Node('C',V);
+		sample.addEdge(nodeA, nodeB);
 		
+		assertFalse(sample.nodeExists(nodeC));
+	}
+	@Test
+	public void testEmptyGraph(){
+		DAG sample = new DAG(0);
+		assertTrue(sample.isEmpty());
 	}
 }

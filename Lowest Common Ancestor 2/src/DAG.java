@@ -13,6 +13,25 @@ public class DAG {
 		}
 	}
 
+	boolean isEmpty() {
+		if (getAdj().length == 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	boolean nodeExists(Node x) {
+		for (int i = 0; i < getAdj().length; i++) {
+			for (int j = 0; j < getAdj()[i].size(); j++) {
+				if (getAdj()[i].get(j).equals(x)) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
 	void addEdge(Node v, Node w) {
 		getAdj()[v.intVal() - 1].add(w);
 	}
@@ -31,8 +50,5 @@ public class DAG {
 
 	public void setV(int v) {
 		V = v;
-	}
-	public boolean checkAcyclic(){
-		return false;
 	}
 }

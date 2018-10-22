@@ -1,7 +1,3 @@
-import java.util.Iterator;
-import java.util.ListIterator;
-import java.util.NoSuchElementException;
-
 public class Queue <T extends Comparable<T>> {
 	public class qNode {
 		public final T data; 
@@ -23,7 +19,7 @@ public class Queue <T extends Comparable<T>> {
 	}
 	
 	public boolean isEmpty() {
-		if (this.head == null) { // Θ(1) if the head is null and then the tail is null, they are not pointing at any node. So
+		if (this.head == null) { // if the head is null and then the tail is null, they are not pointing at any node. So
 			//there is no node in the queue which means its empty.
 			return true;
 		}
@@ -50,7 +46,7 @@ public class Queue <T extends Comparable<T>> {
 	///////////DEQUEUE/////////////
 	public T dequeue() { // Assuming that the first item placed onto the queue, is at the head pointer, and the most recent item enqueued onto 
 		//the queue, is at the tail pointer. 
-		if(!isEmpty()){ // Θ(1)
+		if(!isEmpty()){ //
 			qNode headPointer = this.head; // Store head pointer node data into head pointer variable
 			qNode nextHead = headPointer.next; // Store the new head pointer data into the next head variable
 			T data = headPointer.data; // retrieve the data of the head pointer
