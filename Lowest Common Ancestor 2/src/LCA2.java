@@ -47,8 +47,8 @@ public class LCA2 {
 				}
 			}
 		}
-		for(int i = 0; i < src.distTo.length; i++ ){
+/*		for(int i = 0; i < src.distTo.length; i++ ){
 			System.out.println("Src: " + src.getValue() + " Dist: " + src.distTo[i]);
-		}
+		}*/
 	}
 }

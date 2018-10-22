@@ -90,7 +90,39 @@ public class LCA2Test {
 	}
 	@Test 
 	public void testLCA(){
+		DAG sample = new DAG(V);
+		Node nodeA = new Node('A',V);
+		Node nodeB = new Node('B',V);
+		Node nodeC = new Node('C',V);
+		Node nodeD = new Node('D',V);
+		Node nodeE = new Node('E',V);
+		Node nodeF = new Node('F',V);
+		Node nodeG = new Node('G',V);
 		
+		sample.addEdge(nodeG, nodeD);
+		sample.addEdge(nodeG, nodeF);
+		sample.addEdge(nodeD, nodeC);
+		sample.addEdge(nodeC, nodeB);
+		sample.addEdge(nodeB, nodeA);
+		sample.addEdge(nodeF, nodeE);
+		sample.addEdge(nodeE, nodeB);
+		
+		LCA2 lca = new LCA2();
+		char result = ' ';
+		result = lca.findLCA(nodeG, nodeE, sample);		
+		assertEquals('E', result);
+		
+		result = lca.findLCA(nodeD, nodeF, sample);
+		assertEquals('B', result);
+		
+		result = lca.findLCA(nodeC, nodeF, sample);
+		assertEquals('B', result);
+		
+		result = lca.findLCA(nodeD, nodeE, sample);
+		assertEquals('B', result);
+		
+		result = lca.findLCA(nodeC, nodeG, sample);
+		assertEquals('C', result);
 	}
 	@Test
 	public void testAcyclic(){
